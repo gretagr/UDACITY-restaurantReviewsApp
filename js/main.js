@@ -159,9 +159,9 @@ createRestaurantHTML = (restaurant) => {
   const div = document.createElement('div');
 
   const image = document.createElement('img');
-  const alt = restaurant.name;
+
   image.className = 'restaurant-img';
-  image.alt = alt + ' restaurant image';
+  image.alt = restaurant.name + ' restaurant image';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   div.append(image);
 
@@ -203,6 +203,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 }
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
