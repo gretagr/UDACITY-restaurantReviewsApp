@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
-  cuisines
-var newMap
-var markers = []
+  cuisines;
+var newMap;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -26,7 +26,7 @@ fetchNeighborhoods = () => {
     }
   });
 }
-
+;
 /**
  * Set neighborhoods HTML.
  */
