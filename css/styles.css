@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* ====================== Main Styles ====================== */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -7,7 +8,8 @@
 	transition: all 0.3s ease;
 }
 
-h1, h2 {
+h1,
+h2 {
 	width: 100%;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -17,46 +19,53 @@ header {
 	width: 100%;
 }
 
-.inside, .main {
+.inside,
+.main {
 	font-family: 'Quicksand', sans-serif;
 	color: #2a252c;
 	background-color: #edf0f2;
 }
 
 .maincontent {
-  min-height: 100%;
+	min-height: 100%;
 	width: 100%;
 }
 
 .footer {
-  color: #fff;
+	color: #fff;
 	background-color: #2a252c;
-  padding: 25px;
+	padding: 25px;
 	font-size: 10pt;
 }
 
-.footer, h2 {
+.footer,
+h2 {
 	letter-spacing: 2px;
 	text-align: center;
 }
 
-.name, #restaurant-address, #restaurant-cuisine {
+.name,
+#restaurant-address,
+#restaurant-cuisine {
 	width: 100%;
 	letter-spacing: 5px;
 	font-size: 12pt;
-  text-transform: uppercase;
+	text-transform: uppercase;
 	color: #fff;
 	background: #2a252c;
 }
 
-#restaurant-address, #restaurant-cuisine {
+#restaurant-address,
+#restaurant-cuisine {
 	padding: 5px 0;
 	text-align: center;
 }
 
-#restaurant-name, #reviews-container h2 {
-  font-size: 20pt;
+#restaurant-name,
+#reviews-container h2 {
+	font-size: 20pt;
 }
+
 /* ====================== Links ====================== */
 
 a {
@@ -64,7 +73,8 @@ a {
 	text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
 	color: #d9d8da;
 	text-decoration: none;
 }
@@ -73,8 +83,9 @@ a:hover, a:focus {
 	color: #2a252c;
 }
 
-#breadcrumb p a:hover, .footer a:hover {
-    text-decoration: underline;
+#breadcrumb p a:hover,
+.footer a:hover {
+	text-decoration: underline;
 }
 
 nav {
@@ -84,18 +95,19 @@ nav {
 }
 
 .main-heading {
-  color: #d9d8da;
-  font-size: 18pt;
-  font-weight: 400;
-  letter-spacing: 10px;
-  text-transform: uppercase;
+	color: #d9d8da;
+	font-size: 18pt;
+	font-weight: 400;
+	letter-spacing: 10px;
+	text-transform: uppercase;
 }
 
 /* ====================== Breadcrumb ====================== */
+
 #breadcrumb {
-		width: 100%;
-    padding: 20px;
-		background-color: #edf0f2;
+	width: 100%;
+	padding: 20px;
+	background-color: #edf0f2;
 }
 
 #breadcrumb p {
@@ -109,16 +121,16 @@ nav {
 	display: none;
 }
 
-.main #map  {
-  height: 400px;
+.main #map {
+	height: 400px;
 	max-height: 40vh;
-  width: 100%;
-  background-color: #ccc;
+	width: 100%;
+	background-color: #ccc;
 }
 
 .inside .map-container {
 	height: 250px;
-  width: 100%;
+	width: 100%;
 	margin-top: 10px;
 	background: #ccc none repeat scroll 0 0;
 }
@@ -134,18 +146,20 @@ nav {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-  width: 100%;
-  padding: 10px;
+	width: 100%;
+	padding: 10px;
 	background-color: #d9d8da;
 }
+
 .filter-options h2 {
 	font-size: 14pt;
 }
+
 .filter-options select {
 	width: 200px;
 	height: 35px;
-  margin: 10px;
-  padding: 0 10px;
+	margin: 10px;
+	padding: 0 10px;
 	font-size: 11pt;
 	font-family: 'Quicksand', sans-serif;
 	border: 1px solid #d9d9d9;
@@ -153,19 +167,20 @@ nav {
 }
 
 /* ====================== Restaurant Listing ====================== */
+
 #restaurants-list {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 70%;
 	margin: 0 auto;
-	padding: 30px 0;
+	padding: 30px;
 }
 
 #restaurants-list div {
-  width: 30%;
+	width: 30%;
 	min-width: 270px;
-  margin: 15px;
+	margin: 15px;
 	border: 1px solid #d9d9d9;
 	border-radius: 20px 0 0;
 	background-color: #fff;
@@ -173,7 +188,7 @@ nav {
 
 #restaurants-list .restaurant-img {
 	max-width: 100%;
-  min-width: 100%;
+	min-width: 100%;
 	border-radius: 20px 0 0;
 	background-color: #ccc;
 }
@@ -185,16 +200,16 @@ nav {
 }
 
 #restaurants-list p {
-  margin-left: 20px;
-  font-size: 11pt;
+	margin-left: 20px;
+	font-size: 11pt;
 }
 
 #restaurants-list div button {
-  margin: 20px;
-  padding: 15px 20px;
-  text-transform: uppercase;
+	margin: 20px;
+	padding: 15px 20px;
+	text-transform: uppercase;
 	color: #fff;
-  font-size: 10pt;
+	font-size: 10pt;
 	background-color: #e02110;
 	border: none;
 	cursor: pointer;
@@ -252,14 +267,14 @@ nav {
 
 #reviews-container {
 	width: 80%;
-  margin: 40px auto 40px;
+	margin: 40px auto 40px;
 	padding: 10px 25px 25px;
 	border-radius: 25px 0 0;
 	background: #fff;
 }
 
 #reviews-container h2 {
-  margin: 40px 0;
+	margin: 40px 0;
 	color: #2a252c;
 }
 
@@ -268,7 +283,7 @@ nav {
 	min-width: 280px;
 	padding-bottom: 20px;
 	margin-bottom: 40px;
-  border: 1px solid #d9d9d9;
+	border: 1px solid #d9d9d9;
 	background-color: #fff;
 }
 

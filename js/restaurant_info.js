@@ -1,16 +1,15 @@
 let restaurant;
 var newMap;
 
-/**
- * Initialize map as soon as the page is loaded.
- */
+
+/* ====================== Initialize map as soon as the page is loaded ====================== */
+
 document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
 });
 
-/**
- * Initialize leaflet map
- */
+/* ====================== Initialize leaflet map ====================== */
+
 initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
@@ -35,25 +34,8 @@ initMap = () => {
   });
 }
 
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-} */
+/* ====================== Get current restaurant from page URL. ====================== */
 
-/**
- * Get current restaurant from page URL.
- */
 fetchRestaurantFromURL = (callback) => {
   if (self.restaurant) { // restaurant already fetched!
     callback(null, self.restaurant)
@@ -76,9 +58,8 @@ fetchRestaurantFromURL = (callback) => {
   }
 }
 
-/**
- * Create restaurant HTML and add it to the webpage
- */
+/* ====================== Create restaurant HTML and add it to the webpage ====================== */
+
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
@@ -89,7 +70,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   image.alt = restaurant.name + ' restaurant image';
-  image.src = `/landscape-images${DBHelper.imageUrlForRestaurant(restaurant)}`;
+  image.src = DBHelper.landscapeImageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -102,9 +83,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   fillReviewsHTML();
 }
 
-/**
- * Create restaurant operating hours HTML table and add it to the webpage.
- */
+
+/* ====================== Create restaurant operating hours HTML table and add it to the webpage ====================== */
+
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
@@ -122,9 +103,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   }
 }
 
-/**
- * Create all reviews HTML and add them to the webpage.
- */
+/* ====================== Create all reviews HTML and add them to the webpage ====================== */
+
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
@@ -144,9 +124,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   container.appendChild(ul);
 }
 
-/**
- * Create review HTML and add it to the webpage.
- */
+/* ====================== Create review HTML and add it to the webpage ====================== */
+
 createReviewHTML = (review) => {
   const div = document.createElement('div');
   const name = document.createElement('p');
@@ -169,9 +148,8 @@ createReviewHTML = (review) => {
   return div;
 }
 
-/**
- * Add restaurant name to the breadcrumb navigation menu
- */
+/* ====================== Add restaurant name to the breadcrumb navigation menu ====================== */
+
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const p = document.createElement('p');
@@ -179,9 +157,8 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
   breadcrumb.appendChild(p);
 }
 
-/**
- * Get a parameter by name from page URL.
- */
+ /* ====================== Get a parameter by name from page URL ====================== */
+
 getParameterByName = (name, url) => {
   if (!url)
     url = window.location.href;

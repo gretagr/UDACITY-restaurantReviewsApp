@@ -1,138 +1,138 @@
-
 @media screen and (max-width: 1305px) {
-	#restaurants-list, .restaurant-container, #reviews-container {
+	/* ====================== change width of main containers in both pages ====================== */
+	#restaurants-list,
+	.restaurant-container,
+	#reviews-container {
 		width: 95%;
 	}
 }
 
 @media screen and (max-width: 1075px) {
+	/* ====================== restaurants listing  ====================== */
 	#restaurants-list div {
 		width: 45%;
 	}
 
-  .time-table {
-    margin-top: 15px;
-  }
-
-	#restaurant-address {
-		margin-bottom: 15px;
+	/* ====================== restaurant details ====================== */
+	.restaurant-container,
+	#reviews-container {
+		width: 80%;
 	}
 
-	.restaurant-container, #reviews-container {
-		width: 80%;
+	.time-table {
+		margin-top: 15px;
+		width: 100%;
 	}
 
 	.image-holder {
 		width: 100%;
 		padding: 0;
 	}
-	.time-table {
-		width: 100%;
-	}
 
+	#restaurant-address {
+		margin-bottom: 15px;
+	}
 }
 
 @media screen and (max-width: 648px) {
-
+	/* ====================== restaurants listing  ====================== */
+	#restaurants-list div {
+		width: 70%;
+	}
+	/* ====================== restaurant details ====================== */
 	.inside {
 		background-color: #fff;
 	}
 
-  #restaurants-list div {
-		width: 70%;
-	}
-
 	.restaurant-container {
 		width: 100%;
-    border: none;
-    padding-bottom: 0;
+		border: none;
+		padding-bottom: 0;
 	}
 
 	#reviews-container {
 		width: 100%;
 		padding: 20px;
 	}
-
 }
 
 @media screen and (max-width: 500px) {
-/* ====================== Basic ====================== */
-	#breadcrumb {
-    padding: 10px;
-    font-size: 9pt;
-  }
+	/* ====================== Basic ====================== */
+	.site-name {
+		padding: 15px 10px;
+	}
 
-  .site-name {
-    padding: 15px 10px;
-  }
-
-  .main-heading {
+	.main-heading {
 		font-size: 14pt;
+	}
+
+	#breadcrumb {
+		padding: 10px;
+		font-size: 9pt;
 	}
 
 	.footer {
 		font-size: 9pt;
 	}
+	/* ====================== Restaurant details ====================== */
+	#restaurant-address,
+	#restaurant-cuisine {
+		font-size: 10pt
+	}
 
-/* ====================== Restaurant details ====================== */
+	.inside .map-container {
+		height: 180px;
+	}
 
-  #restaurant-address, #restaurant-cuisine {
-    font-size: 10pt
-  }
+	#restaurant-name {
+		font-size: 16pt;
+		padding-bottom: 20px;
+		text-align: center;
+	}
 
-  .inside .map-container {
-    height: 180px;
-  }
+	#restaurant-hours {
+		font-size: 9pt;
+		min-width: auto;
+	}
 
-  #restaurant-name {
-    font-size: 16pt;
-    padding-bottom: 20px;
-    text-align: center;
-  }
+	#restaurant-hours td {
+		padding-right: 10px;
+		padding-left: 0;
+		font-size: 10pt;
+	}
 
-  #restaurant-hours {
-    font-size: 9pt;
-    min-width: auto;
-  }
+	#reviews-container {
+		padding: 0 15px;
+	}
 
-  #restaurant-hours td {
-    padding-right: 10px;
-    padding-left: 0;
-    font-size: 10pt;
-  }
-
-  #reviews-container {
-    padding: 0 15px;
-  }
-
-  #reviews-container h2 {
-    font-size: 16pt;
-  }
+	#reviews-container h2 {
+		font-size: 16pt;
+	}
 
 	#reviews-list div {
-    margin-bottom: 15px;
-  }
+		margin-bottom: 15px;
+	}
 
-  #reviews-list div p {
-    font-size: 10pt;
-  }
+	#reviews-list div p {
+		font-size: 10pt;
+	}
 
-  #reviews-list div p.name {
-    font-size: 11pt;
-    padding: 8px 20px;
-  }
-
-/* ====================== Restaurant Listing ====================== */
-
+	#reviews-list div p.name {
+		font-size: 11pt;
+		padding: 8px 20px;
+	}
+	/* ====================== Restaurant Listing ====================== */
 	.main #map {
 		height: 250px;
 	}
 
-	.filter-options h2, .filter-options select {
+	.filter-options h2,
+	.filter-options select {
 		font-size: 10pt;
 		margin: 5px;
 		padding: 0;
 	}
+
 	.filter-options {
 		padding: 10px 0;
 		justify-content: center;
@@ -145,25 +145,29 @@
 	#restaurants-list div {
 		width: 90%;
 	}
-
 }
 
 @media screen and (max-width: 420px) {
-
 	.site-name {
-    padding: 15px;
-  }
+		padding: 15px;
+	}
 
 	.main-heading {
 		font-size: 12pt;
 	}
 
-  .main #map {
+	.inside .map-container,
+	.main #map {
 		height: 180px;
 	}
 
-	#reviews-container, .restaurant-container {
-    padding: 0;
-  }
-	
+	#reviews-container,
+	.restaurant-container {
+		padding: 0;
+	}
+
+	#restaurant-hours,
+	.image-holder {
+		padding: 0 10px;
+	}
 }
