@@ -1,3 +1,4 @@
+// url's to save, cache version
 var cacheName = 'reviewsApp-v1';
 var images = [];
 for (var i = 1; i <= 10; i++) {
@@ -5,13 +6,12 @@ for (var i = 1; i <= 10; i++) {
   images.push(`./img/${i}-l.jpg`);
 };
 
-
 self.addEventListener('install', function(event){
-  console.log('[ServiceWorker] Installed');
+  //instaling service worker, cache files
   event.waitUntil(
-    caches.open('reviewsApp-v1').then(function(cache) {
+    caches.open(cacheName).then(function(cache) {
       cache.addAll(images); // adding images but not passing promise, if add fails main site content are still loaded
-      return cache.addAll([
+      return cache.addAll([ //adding main site files
         './',
         './index.html',
         './restaurant.html',
@@ -21,12 +21,29 @@ self.addEventListener('install', function(event){
         './data/restaurants.json',
         './css/styles.css',
         './css/media.css',
-      ]); //adding main site files
+      ]);
     })
   );
 });
+
+self.addEventListener('fetch', function(event) {
+  // handling file requests
+  event.respondWith(
+    caches.match(event.request).then(function (response) { // check cache for requested file
+      return response || fetch(event.request).then(function (responseToFetch) { // if in cache return, else if possible fetch from network
+        return caches.open(cacheName).then(function (cache) { // if network available put file in cache for next time and return request
+          cache.put(event.request, responseToFetch.clone());
+          return responseToFetch;
+        });
+      });
+    }).catch(function (error) {
+      console.log('files not cached & no network connection', error); // if file is not in cache and networ is'nt available log msg
+    })
+  );
+});
+
 self.addEventListener('activate', function(event){
-console.log('[ServiceWorker] Activated');
+// handling old service worker versions
     event.waitUntil(
     caches.keys().then(function(allCaches) {
       return Promise.all(allCaches.map(function (thisCache){
@@ -34,38 +51,6 @@ console.log('[ServiceWorker] Activated');
           return caches.delete(thisCache);
         }
       }));
-    })
-  );
-});
-
-self.addEventListener('fetch', function(event) {
-  console.log('[ServiceWorker] Fetch', event.request.url);
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-
-      if (response) {
-        console.log('[serviceWorker] found in cache', event.request.url, response);
-        return response;
-      }
-
-      var request = event.request.clone();
-
-      return fetch(request).then(function (response) {
-
-        if (!response){
-          console.log("[ServiceWorker] No response from fetch ")
-          return response;
-        }
-        var responseClone = response.clone();
-
-          caches.open(cacheName).then(function (cache) {
-            cache.put(event.request, responseClone);
-            console.log('[ServiceWorker] New Data Cached', event.request.url);
-            return response;
-          });
-      }).catch(function(err) {
-						console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
-      });
     })
   );
 });
